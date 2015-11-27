@@ -2,18 +2,13 @@ package com.rhota.mcplugin.listeners;
 
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.entity.CreeperPowerEvent;
-import org.bukkit.event.entity.ExplosionPrimeEvent;
+import org.bukkit.event.entity.EntityExplodeEvent;
 
 public class ExplosionListener implements Listener {
 
 	@EventHandler
-	public void onTntPrime(ExplosionPrimeEvent e) {
+	public void onTntPrime(EntityExplodeEvent e) {
 		e.setCancelled(true);
 	}
-	
-	@EventHandler
-	public void onCreeperPrime(CreeperPowerEvent e){
-		e.setCancelled(true);
-	}
+
 }
