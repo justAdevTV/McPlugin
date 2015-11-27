@@ -17,7 +17,7 @@ import com.rhota.mcplugin.listeners.WeatherListener;
 public class Core extends JavaPlugin{
 
 	public void onEnable(){
-		
+		registerListeners();
 	}
 	
 	public void onDisable(){

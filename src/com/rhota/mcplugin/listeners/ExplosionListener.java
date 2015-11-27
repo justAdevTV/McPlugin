@@ -3,11 +3,9 @@ package com.rhota.mcplugin.listeners;
 import java.util.UUID;
 
 import org.bukkit.Material;
-import org.bukkit.entity.TNTPrimed;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockPlaceEvent;
-import org.bukkit.event.entity.CreeperPowerEvent;
 
 public class ExplosionListener implements Listener {
 
@@ -18,15 +16,5 @@ public class ExplosionListener implements Listener {
 				e.getBlockPlaced().setType(Material.AIR);
 			}
 		}
-	}
-	
-	@EventHandler
-	public void disableTntExplosion(TNTPrimed e){
-		e.remove();
-	}
-	
-	@EventHandler
-	public void creeperExplodeEvent(CreeperPowerEvent e){
-		e.setCancelled(true);
 	}
 }

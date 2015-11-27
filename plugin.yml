@@ -1,0 +1,3 @@
+name: McPlugin
+main: com.rhota.mcplugin.Core
+version: 1.0

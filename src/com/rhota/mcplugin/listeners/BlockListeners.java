@@ -3,6 +3,7 @@ package com.rhota.mcplugin.listeners;
 import org.bukkit.GameMode;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 
 public class BlockListeners implements Listener{
@@ -16,7 +17,7 @@ public class BlockListeners implements Listener{
 	}
 	
 	@EventHandler
-	public void onBlockBreak(BlockPlaceEvent e){
+	public void onBlockBreak(BlockBreakEvent e){
 		if (e.getPlayer().getGameMode() != GameMode.CREATIVE){
 			e.setCancelled(true);
 		}
