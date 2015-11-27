@@ -13,7 +13,7 @@ public class Core extends JavaPlugin {
 	RegisterListener registerListeners;
 	
 	public void onEnable() {
-		registerListeners = new RegisterListener();
+		registerListeners = new RegisterListener(this);
 	}
 
 	public void onDisable() {

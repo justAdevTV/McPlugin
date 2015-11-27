@@ -4,12 +4,10 @@ import org.bukkit.plugin.PluginManager;
 
 import com.rhota.mcplugin.Core;
 
-public class RegisterListener extends Core{
+public class RegisterListener {
 	
-	Core p;
-	
-	public RegisterListener() {
-		PluginManager pluginManager = getServer().getPluginManager();
+	public RegisterListener(Core p) {
+		PluginManager pluginManager = p.getServer().getPluginManager();
 		// TODO Add toggle
 		pluginManager.registerEvents(new BlockListeners(), p);
 		pluginManager.registerEvents(new DamageListener(), p);
