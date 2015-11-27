@@ -17,6 +17,10 @@ import com.rhota.mcplugin.listeners.WeatherListener;
 public class Core extends JavaPlugin{
 
 	public void onEnable(){
+		// Disable time
+		getServer().dispatchCommand(getServer().getConsoleSender(), "/gamerule doDaylightCycle false");
+		// Set time to noon (6000 ticks)
+		getServer().dispatchCommand(getServer().getConsoleSender(), "/time set 6000");
 		registerListeners();
 	}
 	
