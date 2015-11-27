@@ -3,6 +3,7 @@ package com.rhota.mcplugin;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import com.rhota.mcplugin.listeners.AchievementListener;
 import com.rhota.mcplugin.listeners.BlockListeners;
 import com.rhota.mcplugin.listeners.DamageListener;
 import com.rhota.mcplugin.listeners.ExplosionListener;
@@ -14,29 +15,31 @@ import com.rhota.mcplugin.listeners.WeatherListener;
  * Created by justAdevTV on 11/26/2015.
  */
 
-public class Core extends JavaPlugin{
+public class Core extends JavaPlugin {
 
-	public void onEnable(){
+	public void onEnable() {
 		// Disable time
 		getServer().dispatchCommand(getServer().getConsoleSender(), "/gamerule doDaylightCycle false");
 		// Set time to noon (6000 ticks)
 		getServer().dispatchCommand(getServer().getConsoleSender(), "/time set 6000");
 		registerListeners();
 	}
-	
-	public void onDisable(){
-		
+
+	public void onDisable() {
+
 	}
-	
-	 public void registerListeners(){
-		 PluginManager pluginManager = getServer().getPluginManager();
-		 //TODO Add toggle
-		 pluginManager.registerEvents(new BlockListeners(), this);
-		 pluginManager.registerEvents(new DamageListener(), this);
-		 pluginManager.registerEvents(new ExplosionListener(), this);
-		 pluginManager.registerEvents(new FoodListener(), this);
-		 pluginManager.registerEvents(new ItemListeners(), this);
-		 pluginManager.registerEvents(new WeatherListener(), this);
-	 }
+
+	public void registerListeners() {
+		PluginManager pluginManager = getServer().getPluginManager();
+		// TODO Add toggle
+		pluginManager.registerEvents(new BlockListeners(), this);
+		pluginManager.registerEvents(new DamageListener(), this);
+		pluginManager.registerEvents(new ExplosionListener(), this);
+		pluginManager.registerEvents(new FoodListener(), this);
+		pluginManager.registerEvents(new ItemListeners(), this);
+		pluginManager.registerEvents(new WeatherListener(), this);
+		pluginManager.registerEvents(new AchievementListener(), this);
+	}
+
 	
 }
