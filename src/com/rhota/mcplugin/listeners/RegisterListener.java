@@ -1,15 +1,12 @@
 package com.rhota.mcplugin.listeners;
 
+import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
 
-import com.rhota.mcplugin.Core;
-
-public class RegisterListener extends Core{
+public class RegisterListener{
 	
-	Core p;
-	
-	public RegisterListener() {
-		PluginManager pluginManager = getServer().getPluginManager();
+	public RegisterListener(Plugin p) {
+		PluginManager pluginManager = p.getServer().getPluginManager();
 		// TODO Add toggle
 		pluginManager.registerEvents(new BlockListeners(), p);
 		pluginManager.registerEvents(new DamageListener(), p);
@@ -19,5 +16,4 @@ public class RegisterListener extends Core{
 		pluginManager.registerEvents(new WeatherListener(), p);
 		pluginManager.registerEvents(new AchievementListener(), p);
 	}
-	
 }
