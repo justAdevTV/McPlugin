@@ -8,6 +8,6 @@ public enum Rank {
 	BUILDER,
 	DONOR_ONE,
 	DONOR_TWO,
-	DONOR_3;
-	
+	DONOR_3,
+	DEFAULT;
 }
