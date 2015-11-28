@@ -15,8 +15,7 @@ public class FileReader {
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
 			return null;
-		}
-		
+		}		
 	}
 	
 	public static List<String> read(String loc) {
