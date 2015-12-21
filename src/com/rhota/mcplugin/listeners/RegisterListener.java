@@ -16,5 +16,6 @@ public class RegisterListener{
 		pluginManager.registerEvents(new WeatherListener(), p);
 		pluginManager.registerEvents(new AchievementListener(), p);
 		pluginManager.registerEvents(new PlayerJoinListener(), p);
+		pluginManager.registerEvents(new PlayerChatListener(p), p);
 	}
 }
