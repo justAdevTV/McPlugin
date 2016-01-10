@@ -50,7 +50,8 @@ public class GameWorldHandler {
 		}
 		if (returnValue == null) {
 			returnValue = new GameWorldHandler();
-			returnValue.createBlankWorld();
+            returnValue.createBlankWorld();
+            gw.add(returnValue);
 		}
 		return returnValue;
 	}

@@ -1,7 +1,7 @@
 package com.rhota.mcplugin.ranks;
 
 public class Prefix {
-	public String prefix;
+	final public String prefix;
 	
 	public String append(String message) {
 		return new StringBuilder()

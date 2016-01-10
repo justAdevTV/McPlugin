@@ -6,7 +6,7 @@ import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.plugin.Plugin;
 
 public class RankHandler {
-	public Plugin p;
+	final public Plugin p;
 	
 	public RankHandler(Plugin p) {
 		this.p = p;

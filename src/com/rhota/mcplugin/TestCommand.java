@@ -15,7 +15,7 @@ import java.io.File;
 
 public class TestCommand implements CommandExecutor {
 
-    Plugin p;
+    final private Plugin p;
 
     @Override
     public boolean onCommand(CommandSender arg0, Command arg1, String arg2, String[] arg3) {

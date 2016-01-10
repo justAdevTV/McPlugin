@@ -8,12 +8,10 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 
 public class RegisterListener {
 
-    private JavaPlugin p;
+    final private JavaPlugin p;
 
     public void register() {
         PluginManager pluginManager = p.getServer().getPluginManager();
@@ -76,7 +74,7 @@ public class RegisterListener {
         /**
          * Listeners
          */
-        Arrays.stream(new Listener[] {
+        Arrays.stream(new Listener[]{
                 new BlockListeners(),
                 new DamageListener(),
                 new ExplosionListener(),
@@ -86,18 +84,16 @@ public class RegisterListener {
                 new AchievementListener(),
                 new PlayerJoinListener(),
                 new PlayerChatListener(p)
-        }).forEach((x) -> {
-            pluginManager.registerEvents(x, p);
-        });
+        }).forEach((x) -> pluginManager.registerEvents(x, p));
 
         /**
          * Commands
          */
-        Arrays.stream(new Object[][] {
-           new Object[] {
-                   "test",
-                   new TestCommand(p)
-           }
+        Arrays.stream(new Object[][]{
+                new Object[]{
+                        "test",
+                        new TestCommand(p)
+                }
         }).forEach((x) -> {
             if (x[0] instanceof String && x[1] instanceof CommandExecutor) {
                 final String name = (String) x[0];
@@ -111,14 +107,7 @@ public class RegisterListener {
 
     }
 
-    public RegisterListener(JavaPlugin p, boolean auto) {
-        this.p = p;
-
-        if (auto)
-            register();
-    }
-
     public RegisterListener(JavaPlugin p) {
-        this(p, true);
+        this.p = p;
     }
 }

@@ -34,20 +34,4 @@ public class LoadWorld {
 			DebugUtility.toConsole(temp.getMessage());
 		}
 	}
-
-	/**
-	 * Note: You should never use this.
-	 * @param idOfWorld
-	 * @param file
-     * @param l
-     */
-	@Deprecated
-	public static World loadInCompletelyBlankWorld(String idOfWorld, File file, Location l) {
-		GameWorldHandler w = new GameWorldHandler();
-
-		World q = w.createBlankWorld();
-		//TODO: Find optimal y
-		loadInCurrentWorld(file, new Location(q, 0, 64, 0));
-		return q;
-	}
 }
