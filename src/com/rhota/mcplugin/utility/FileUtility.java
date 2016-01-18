@@ -20,7 +20,7 @@ public class FileUtility {
         return read(Paths.get(loc));
     }
 
-    public static void recursive_delete(File loc) {
+    public static boolean recursive_delete(File loc) {
         try {
             /**
              * Copy pasta from
@@ -54,8 +54,10 @@ public class FileUtility {
                     }
                 }
             });
+            return true;
         } catch (IOException e) {
-            DebugUtility.toConsole(e.getMessage());
+            return false;
+//            DebugUtility.toConsole(e.getMessage());
         }
     }
 }

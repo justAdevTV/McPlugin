@@ -6,14 +6,16 @@ import java.util.stream.Collectors;
 
 public class DebugUtility {
 	public static StackTraceElement getCallingClass() {
+		Class c = new Object(){}.getClass().getEnclosingClass();
 		String q = Arrays.stream(new Object(){}.getClass().getEnclosingClass().getName().split("\\."))
                 .limit(2)
                 .collect(Collectors.joining("."));
-        List<StackTraceElement> w = Arrays.stream(Thread.currentThread().getStackTrace())
-                .filter((s) -> s.toString().startsWith(q))
-                .collect(Collectors.toList());
-        return w.get(w.size() - 2);
+        return Arrays.stream(Thread.currentThread().getStackTrace())
+				.filter((s) -> s.toString().startsWith(q) && !s.toString().startsWith(c.getName()))
+                .collect(Collectors.toList())
+				.get(0);
 	}
+
 	public static void toConsole(Object... message) {
 		StringBuilder s = new StringBuilder();
 		StackTraceElement q = getCallingClass();

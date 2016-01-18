@@ -1,6 +1,7 @@
 package com.rhota.mcplugin.listeners;
 
 import com.rhota.mcplugin.TestCommand;
+import com.rhota.mcplugin.config.GameWorldHandlerConfig;
 import com.rhota.mcplugin.utility.DebugUtility;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.event.Listener;
@@ -12,6 +13,12 @@ import java.util.Arrays;
 public class RegisterListener {
 
     final private JavaPlugin p;
+    private GameWorldHandlerConfig c;
+
+    public RegisterListener(JavaPlugin p, GameWorldHandlerConfig c) {
+        this.p = p;
+        this.c = c;
+    }
 
     public void register() {
         PluginManager pluginManager = p.getServer().getPluginManager();
@@ -92,7 +99,7 @@ public class RegisterListener {
         Arrays.stream(new Object[][]{
                 new Object[]{
                         "test",
-                        new TestCommand(p)
+                        new TestCommand(p, c)
                 }
         }).forEach((x) -> {
             if (x[0] instanceof String && x[1] instanceof CommandExecutor) {
@@ -105,9 +112,5 @@ public class RegisterListener {
             }
         });
 
-    }
-
-    public RegisterListener(JavaPlugin p) {
-        this.p = p;
     }
 }
